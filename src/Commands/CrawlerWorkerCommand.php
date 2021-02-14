@@ -17,7 +17,7 @@ use Monolog\Logger;
 class CrawlerWorkerCommand
 {
 
-    protected $logger;
+    protected Logger $logger;
 
     public function __construct()
     {
@@ -28,8 +28,10 @@ class CrawlerWorkerCommand
     {
         try {
             $this->logger->info("Start worker");
+
             $taskDto = $this->resolveTask();
             $this->crawl($taskDto);
+
             $this->logger->info("Finish worker");
         } catch (\Throwable $e) {
             $this->logger->critical(LogAdjutant::makeLogMessage($e));

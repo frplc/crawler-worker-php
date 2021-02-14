@@ -15,22 +15,22 @@ abstract class BaseCrawlerWorker implements CrawlerWorker
     /**
      * @var TaskDto
      */
-    protected $taskDto;
+    protected TaskDto $taskDto;
 
     /**
      * @var int
      */
-    protected $successfulRequestsQuantity;
+    protected int $successfulRequestsQuantity;
 
     /**
      * @var int
      */
-    protected $rejectedRequestsQuantity;
+    protected int $rejectedRequestsQuantity;
 
     /**
      * @var Logger
      */
-    protected $logger;
+    protected Logger $logger;
 
     /**
      * Initialize common crawler params and settings based on TaskDto data

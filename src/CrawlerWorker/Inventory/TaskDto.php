@@ -14,32 +14,32 @@ class TaskDto implements ITaskDto
     /**
      * @var string
      */
-    protected $crawlerType;
+    protected string $crawlerType;
 
     /**
      * @var array
      */
-    protected $urls;
+    protected array $urls;
 
     /**
      * @var int
      */
-    protected $concurrencyValue;
+    protected int $concurrencyValue;
 
     /**
      * @var \StdClass
      */
-    protected $options;
+    protected \StdClass $options;
 
     /**
      * @var string
      */
-    protected $responseHandlerType;
+    protected string $responseHandlerType;
 
     /**
      * @var string
      */
-    protected $fileSavingPath;
+    protected string $fileSavingPath;
 
     /**
      * @param string $responseHandlerType

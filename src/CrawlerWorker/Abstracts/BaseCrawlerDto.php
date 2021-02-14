@@ -14,27 +14,27 @@ abstract class BaseCrawlerDto implements CrawlerDto
     /**
      * @var array
      */
-    protected $headers;
+    protected array $headers;
 
     /**
      * @var int
      */
-    protected $statusCode;
+    protected int $statusCode;
 
     /**
      * @var int
      */
-    protected $requestIndex;
+    protected int $requestIndex;
 
     /**
      * @var string
      */
-    protected $requestedUrl;
+    protected string $requestedUrl;
 
     /**
      * @var string
      */
-    protected $arbitraryMessage;
+    protected string $arbitraryMessage;
 
     /**
      * @var mixed

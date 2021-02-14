@@ -15,7 +15,7 @@ class QueueHandler
     /**
      * @var ServiceDiscovery
      */
-    protected $serviceDiscovery;
+    protected ServiceDiscovery $serviceDiscovery;
 
     /**
      * @var string

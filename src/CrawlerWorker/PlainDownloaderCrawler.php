@@ -29,6 +29,8 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     public function configure(): void
     {
         parent::configure();
+
+        // configure
     }
 
     /**

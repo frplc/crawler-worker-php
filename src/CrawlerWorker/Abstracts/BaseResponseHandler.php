@@ -14,12 +14,12 @@ abstract class BaseResponseHandler
     /**
      * @var CrawlerWorker
      */
-    protected $crawler;
+    protected CrawlerWorker $crawler;
 
     /**
      * @var CrawlerDto
      */
-    protected $crawlerDto;
+    protected CrawlerDto $crawlerDto;
 
     /**
      * BaseResponseHandler constructor.

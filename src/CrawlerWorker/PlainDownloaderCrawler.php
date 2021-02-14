@@ -23,7 +23,6 @@ use GuzzleHttp\Psr7\Response;
  */
 class PlainDownloaderCrawler extends BaseCrawlerWorker
 {
-
     /**
      * Initialize specific crawler params and settings: headers, etc. based on TaskDto data
      */
@@ -80,6 +79,10 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
         ]);
     }
 
+    /**
+     * @param Response $response
+     * @param $requestIndex
+     */
     protected function crawlSuccessfully(Response $response, $requestIndex): void
     {
         $crawlerDto = new PlainDownloaderDto();
@@ -92,11 +95,19 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
         $responseHandler->handleSuccessfulResponse();
     }
 
+    /**
+     * @param int $requestIndex
+     * @return string
+     */
     protected function getRequestedUrl(int $requestIndex): string
     {
         return $this->taskDto->getUrls()[$requestIndex];
     }
 
+    /**
+     * @param RequestException $reason
+     * @param $requestIndex
+     */
     protected function crawlRejected(RequestException $reason, $requestIndex): void
     {
         $crawlerDto = new PlainDownloaderDto();

@@ -12,7 +12,6 @@ use App\CrawlerWorker\Interfaces\ResponseHandler;
 
 class LinksDigger extends BaseResponseHandler implements ResponseHandler
 {
-
     /**
      * LinksDigger constructor.
      * @param CrawlerWorker $crawler
@@ -29,8 +28,6 @@ class LinksDigger extends BaseResponseHandler implements ResponseHandler
     {
         $this->dig();
     }
-
-
 
     /**
      * Recursively dig links depends on task's parameters

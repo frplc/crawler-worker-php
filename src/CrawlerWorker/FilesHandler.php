@@ -12,7 +12,6 @@ use App\CrawlerWorker\Interfaces\ResponseHandler;
 
 class FilesHandler extends BaseResponseHandler implements ResponseHandler
 {
-
     /**
      * LinksDigger constructor.
      * @param CrawlerWorker $crawler

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Date: 12.02.21
  * Time: 23:22
@@ -9,13 +10,14 @@ use App\Adjutants\LogAdjutant;
 use App\CrawlerWorker\CrawlerFactory;
 use App\CrawlerWorker\Interfaces\TaskDto;
 use App\CrawlerWorker\QueueHandler;
+use App\Inventory\CrawlerWorkerConsts;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 class CrawlerWorkerCommand
 {
 
-    protected Logger $logger;
+    protected $logger;
 
     public function __construct()
     {
@@ -56,8 +58,8 @@ class CrawlerWorkerCommand
     {
         $date = (new \DateTime())->format("Y_m_d");
         $logger = new Logger("crawler-worker-php");
-        $logger->pushHandler(new StreamHandler("../storage/logs/log_"
-            .$date, Logger::DEBUG));
+        $logger->pushHandler(new StreamHandler(CrawlerWorkerConsts::STORAGE_DIR_PATH
+            ."logs/log_".$date, Logger::DEBUG));
         $this->logger = $logger;
     }
 

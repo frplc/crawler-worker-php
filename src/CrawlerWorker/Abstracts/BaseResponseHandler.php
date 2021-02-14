@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Date: 13.02.21
  * Time: 23:20
@@ -7,7 +8,6 @@ namespace App\CrawlerWorker\Abstracts;
 
 use App\CrawlerWorker\Interfaces\CrawlerDto;
 use App\CrawlerWorker\Interfaces\CrawlerWorker;
-
 
 abstract class BaseResponseHandler
 {

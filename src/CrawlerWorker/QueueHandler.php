@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Interfaces\TaskDto;
+use App\Inventory\CrawlerWorkerConsts;
 
 class QueueHandler
 {
@@ -91,7 +92,7 @@ class QueueHandler
         ]);
 
         $taskDto->setResponseHandlerType("FILES_HANDLER");
-        $taskDto->setFileSavingPath("../storage/files");
+        $taskDto->setFileSavingPath(CrawlerWorkerConsts::STORAGE_DIR_PATH."files");
 
         return $taskDto;
     }

@@ -38,11 +38,19 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
      */
     public function crawl(): void
     {
-        $client = new Client();
+        $client = $this->prepareClient();
         $requests = $this->prepareRequests();
-        $pool = $this->makePool($client, $requests);
+        $pool = $this->makeRequestsPool($client, $requests);
         $promise = $pool->promise();
         $promise->wait();
+    }
+
+    /**
+     * @return Client
+     */
+    protected function prepareClient(): Client
+    {
+        return new Client();
     }
 
     /**
@@ -63,13 +71,11 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
      * @param callable $requests
      * @return Pool
      */
-    protected function makePool($client, callable $requests): Pool
+    protected function makeRequestsPool($client, callable $requests): Pool
     {
         return new Pool($client, $requests(), [
             'concurrency' => $this->taskDto->getConcurrencyValue(),
-            'options' => [
-                'debug' => $this->taskDto->getOptions()->debug
-            ],
+            'options' => $this->prepareRequestsOptions(),
             'fulfilled' => function (Response $response, $index) {
                 $this->successfulRequestsQuantity++;
                 $this->crawlSuccessfully($response, $index);
@@ -79,6 +85,18 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
                 $this->crawlRejected($reason, $index);
             },
         ]);
+    }
+
+    /**
+     * Set any needed options for each request in the request's pool
+     *
+     * @return array
+     */
+    protected function prepareRequestsOptions(): array
+    {
+        return [
+            'debug' => $this->taskDto->getOptions()->debug
+        ];
     }
 
     /**

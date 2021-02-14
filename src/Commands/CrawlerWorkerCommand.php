@@ -24,7 +24,7 @@ class CrawlerWorkerCommand
         $this->configureLogger();
     }
 
-    public function fire(): void
+    public function handle(): void
     {
         try {
             $this->logger->info("Start worker");
@@ -47,6 +47,7 @@ class CrawlerWorkerCommand
     protected function crawl(TaskDto $taskDto): void
     {
         $crawler = CrawlerFactory::makeCrawler($taskDto->getCrawlerType());
+
         $crawler->setLogger($this->logger);
         $crawler->setTaskDto($taskDto);
         $crawler->configure();

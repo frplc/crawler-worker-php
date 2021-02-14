@@ -5,7 +5,7 @@ require __DIR__.'/../vendor/autoload.php';
 use \App\Commands\CrawlerWorkerCommand;
 
 $command = new CrawlerWorkerCommand();
-$command->fire();
+$command->handle();
 
 
 

@@ -88,7 +88,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     }
 
     /**
-     * Set any needed options for each request in the request's pool
+     * Set any needed options for requests in the request's pool
      *
      * @return array
      */

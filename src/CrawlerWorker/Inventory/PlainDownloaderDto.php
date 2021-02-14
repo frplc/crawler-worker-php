@@ -17,12 +17,12 @@ class PlainDownloaderDto extends BaseCrawlerDto
     /**
      * @var Response
      */
-    protected Response $response;
+    protected $response;
 
     /**
      * @var RequestException
      */
-    protected RequestException $requestException;
+    protected $requestException;
 
     /**
      * @param Response $response

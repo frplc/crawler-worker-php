@@ -20,12 +20,12 @@ abstract class BaseCrawlerWorker implements CrawlerWorker
     /**
      * @var int
      */
-    protected int $successfulRequestsQuantity;
+    protected int $successfulRequestsQuantity = 0;
 
     /**
      * @var int
      */
-    protected int $rejectedRequestsQuantity;
+    protected int $rejectedRequestsQuantity = 0;
 
     /**
      * @var Logger

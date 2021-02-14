@@ -24,7 +24,7 @@ use GuzzleHttp\Psr7\Response;
 class PlainDownloaderCrawler extends BaseCrawlerWorker
 {
     /**
-     * Initialize specific crawler params and settings: headers, etc. based on TaskDto data
+     * Initialize specific crawler params and settings based on TaskDto data
      */
     public function configure(): void
     {
@@ -50,7 +50,9 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
      */
     protected function prepareClient(): Client
     {
-        return new Client();
+        return new Client([
+            'timeout' => 2.0
+        ]);
     }
 
     /**
@@ -95,7 +97,14 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     protected function prepareRequestsOptions(): array
     {
         return [
-            'debug' => $this->taskDto->getOptions()->debug
+            'debug' => $this->taskDto->getOptions()->debug,
+            'headers' => [
+                'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+                "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                "Accept-encoding" => "gzip, deflate, br",
+                "Accept-language" => "en,ru;q=0.9,it;q=0.8,en-US;q=0.7",
+                "Cache-control" => "no-cache",
+            ]
         ];
     }
 

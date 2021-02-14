@@ -1,4 +1,4 @@
-# Crawler worker in PHP
+# Crawler worker on PHP
  
 Skeleton of worker as part of distributed crawling system
 

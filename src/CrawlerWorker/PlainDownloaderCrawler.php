@@ -16,7 +16,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
 /**
- * Crawler based on Guzzle, aimed to make concurrent plain downloads of URL (pages, images, etc.)
+ * Crawler based on Guzzle, aimed to make concurrent plain downloads of URLs (pages, images, etc.)
  *
  * Class PlainDownloaderCrawler
  * @package App\CrawlerWorker

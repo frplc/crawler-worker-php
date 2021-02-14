@@ -4,7 +4,7 @@ declare(strict_types=1);
  * Date: 13.02.21
  * Time: 1:12
  */
-namespace App\Services;
+namespace App\CrawlerWorker;
 
 class ServiceDiscovery
 {

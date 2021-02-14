@@ -3,7 +3,7 @@
  * Date: 13.02.21
  * Time: 23:33
  */
-namespace App\Services\Interfaces;
+namespace App\CrawlerWorker\Interfaces;
 
 interface CrawlerDto
 {

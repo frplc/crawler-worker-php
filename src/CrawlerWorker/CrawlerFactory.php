@@ -4,9 +4,9 @@ declare(strict_types=1);
  * Date: 12.02.21
  * Time: 23:24
  */
-namespace App\Services;
+namespace App\CrawlerWorker;
 
-use App\Services\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\CrawlerWorker;
 
 class CrawlerFactory
 {

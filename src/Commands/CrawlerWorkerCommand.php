@@ -6,19 +6,16 @@
 namespace App\Commands;
 
 use App\Adjutants\LogAdjutant;
-use App\Services\CrawlerFactory;
-use App\Services\Interfaces\TaskDto;
-use App\Services\QueueHandler;
+use App\CrawlerWorker\CrawlerFactory;
+use App\CrawlerWorker\Interfaces\TaskDto;
+use App\CrawlerWorker\QueueHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
-class CrawlerWorker
+class CrawlerWorkerCommand
 {
 
-    /**
-     * @var Logger
-     */
-    protected $logger;
+    protected Logger $logger;
 
     public function __construct()
     {

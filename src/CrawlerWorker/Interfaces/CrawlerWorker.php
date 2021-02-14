@@ -3,22 +3,12 @@
  * Date: 12.02.21
  * Time: 22:25
  */
-namespace App\Services\Interfaces;
+namespace App\CrawlerWorker\Interfaces;
 
 use Monolog\Logger;
 
 interface CrawlerWorker
 {
-    /**
-     * @param TaskDto $taskDto
-     */
-    public function setTaskDto(TaskDto $taskDto): void;
-
-    /**
-     * @return TaskDto
-     */
-    public function getTaskDto(): TaskDto;
-
     /**
      * Initialize crawler params and settings
      */
@@ -40,6 +30,15 @@ interface CrawlerWorker
      */
     public function setLogger(Logger $logger): void;
 
+    /**
+     * @param TaskDto $taskDto
+     */
+    public function setTaskDto(TaskDto $taskDto): void;
+
+    /**
+     * @return TaskDto
+     */
+    public function getTaskDto(): TaskDto;
     /**
      * @return Logger
      */

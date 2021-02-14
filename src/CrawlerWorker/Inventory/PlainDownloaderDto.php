@@ -3,9 +3,9 @@
  * Date: 13.02.21
  * Time: 23:23
  */
-namespace App\Services\Inventory;
+namespace App\CrawlerWorker\Inventory;
 
-use App\Services\Abstracts\BaseCrawlerDto;
+use App\CrawlerWorker\Abstracts\BaseCrawlerDto;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 

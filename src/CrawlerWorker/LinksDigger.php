@@ -3,11 +3,11 @@
  * Date: 13.02.21
  * Time: 22:55
  */
-namespace App\Services;
+namespace App\CrawlerWorker;
 
-use App\Services\Abstracts\BaseResponseHandler;
-use App\Services\Interfaces\CrawlerWorker;
-use App\Services\Interfaces\ResponseHandler;
+use App\CrawlerWorker\Abstracts\BaseResponseHandler;
+use App\CrawlerWorker\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\ResponseHandler;
 
 class LinksDigger extends BaseResponseHandler implements ResponseHandler
 {

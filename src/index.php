@@ -2,9 +2,9 @@
 declare(strict_types=1);
 require __DIR__.'/../vendor/autoload.php';
 
-use \App\Commands\CrawlerWorker;
+use \App\Commands\CrawlerWorkerCommand;
 
-$worker = new CrawlerWorker();
+$worker = new CrawlerWorkerCommand();
 $worker->fire();
 
 

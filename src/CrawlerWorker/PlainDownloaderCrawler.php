@@ -4,11 +4,11 @@ declare(strict_types=1);
  * Date: 12.02.21
  * Time: 22:26
  */
-namespace App\Services;
+namespace App\CrawlerWorker;
 
-use App\Services\Abstracts\BaseCrawlerWorker;
+use App\CrawlerWorker\Abstracts\BaseCrawlerWorker;
 
-use App\Services\Inventory\PlainDownloaderDto;
+use App\CrawlerWorker\Inventory\PlainDownloaderDto;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Pool;
@@ -19,7 +19,7 @@ use GuzzleHttp\Psr7\Response;
  * Crawler based on Guzzle, aimed to make concurrent plain downloads of URL (pages, images, etc.)
  *
  * Class PlainDownloaderCrawler
- * @package App\Services
+ * @package App\CrawlerWorker
  */
 class PlainDownloaderCrawler extends BaseCrawlerWorker
 {

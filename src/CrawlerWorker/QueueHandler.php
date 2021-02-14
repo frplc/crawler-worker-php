@@ -4,9 +4,9 @@ declare(strict_types=1);
  * Date: 13.02.21
  * Time: 1:11
  */
-namespace App\Services;
+namespace App\CrawlerWorker;
 
-use App\Services\Interfaces\TaskDto;
+use App\CrawlerWorker\Interfaces\TaskDto;
 
 class QueueHandler
 {
@@ -57,13 +57,13 @@ class QueueHandler
     protected function convertMessageToTaskDto(string $message): TaskDto
     {
         //Stub data
-        $taskDto = new \App\Services\Inventory\TaskDto();
+        $taskDto = new \App\CrawlerWorker\Inventory\TaskDto();
 
         $taskDto->setCrawlerType("PLAIN_DOWNLOADER");
         $taskDto->setConcurrencyValue(10);
 
         $options = new \StdClass();
-        $options->debug = false;
+        $options->debug = true;
         $taskDto->setOptions($options);
 
         $taskDto->setUrls([

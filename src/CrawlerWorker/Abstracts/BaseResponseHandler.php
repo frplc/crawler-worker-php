@@ -3,10 +3,10 @@
  * Date: 13.02.21
  * Time: 23:20
  */
-namespace App\Services\Abstracts;
+namespace App\CrawlerWorker\Abstracts;
 
-use App\Services\Interfaces\CrawlerDto;
-use App\Services\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\CrawlerDto;
+use App\CrawlerWorker\Interfaces\CrawlerWorker;
 
 
 abstract class BaseResponseHandler

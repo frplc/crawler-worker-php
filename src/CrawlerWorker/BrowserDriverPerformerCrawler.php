@@ -4,15 +4,15 @@ declare(strict_types=1);
  * Date: 12.02.21
  * Time: 22:27
  */
-namespace App\Services;
+namespace App\CrawlerWorker;
 
-use App\Services\Abstracts\BaseCrawlerWorker;
+use App\CrawlerWorker\Abstracts\BaseCrawlerWorker;
 
 /**
  * Crawler based on browser driver, aimed to perform complex emulation activity
  *
  * Class BrowserDriverPerformerCrawler
- * @package App\Services
+ * @package App\CrawlerWorker
  */
 class BrowserDriverPerformerCrawler extends BaseCrawlerWorker
 {

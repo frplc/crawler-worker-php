@@ -4,10 +4,10 @@ declare(strict_types=1);
  * Date: 12.02.21
  * Time: 22:24
  */
-namespace App\Services\Abstracts;
+namespace App\CrawlerWorker\Abstracts;
 
-use App\Services\Interfaces\CrawlerWorker;
-use App\Services\Interfaces\TaskDto;
+use App\CrawlerWorker\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\TaskDto;
 use Monolog\Logger;
 
 abstract class BaseCrawlerWorker implements CrawlerWorker

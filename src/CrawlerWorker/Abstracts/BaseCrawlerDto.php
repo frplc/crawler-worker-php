@@ -3,9 +3,9 @@
  * Date: 14.02.21
  * Time: 1:38
  */
-namespace App\Services\Abstracts;
+namespace App\CrawlerWorker\Abstracts;
 
-use App\Services\Interfaces\CrawlerDto;
+use App\CrawlerWorker\Interfaces\CrawlerDto;
 
 abstract class BaseCrawlerDto implements CrawlerDto
 {

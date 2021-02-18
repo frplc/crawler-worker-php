@@ -51,7 +51,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     protected function prepareClient(): Client
     {
         return new Client([
-            'timeout' => 2.0
+            'timeout' => 10
         ]);
     }
 

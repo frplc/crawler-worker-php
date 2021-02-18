@@ -3,7 +3,7 @@
  * Date: 12.02.21
  * Time: 23:52
  */
-namespace App\CrawlerWorker\Interfaces;
+namespace App\Interfaces;
 
 interface TaskDto
 {

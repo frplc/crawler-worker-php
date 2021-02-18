@@ -8,9 +8,9 @@ namespace App\Commands;
 
 use App\Adjutants\LogAdjutant;
 use App\CrawlerWorker\CrawlerFactory;
-use App\CrawlerWorker\Interfaces\TaskDto;
-use App\CrawlerWorker\QueueHandler;
-use App\Inventory\CrawlerWorkerConsts;
+use App\Interfaces\TaskDto;
+use App\Inventory\CommonConsts;
+use App\QueueHandler\QueueHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
@@ -61,7 +61,7 @@ class CrawlerWorkerCommand
     {
         $date = (new \DateTime())->format("Y_m_d");
         $logger = new Logger("crawler-worker-php");
-        $logger->pushHandler(new StreamHandler(CrawlerWorkerConsts::STORAGE_DIR_PATH
+        $logger->pushHandler(new StreamHandler(CommonConsts::STORAGE_DIR_PATH
             ."logs/log_".$date, Logger::DEBUG));
         $this->logger = $logger;
     }

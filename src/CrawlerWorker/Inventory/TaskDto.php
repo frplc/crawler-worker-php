@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 namespace App\CrawlerWorker\Inventory;
 
-use \App\CrawlerWorker\Interfaces\TaskDto as ITaskDto;
+use App\Interfaces\TaskDto as ITaskDto;
 
 class TaskDto implements ITaskDto
 {

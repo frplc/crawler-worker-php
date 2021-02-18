@@ -5,6 +5,7 @@
  */
 namespace App\CrawlerWorker\Interfaces;
 
+use App\Interfaces\TaskDto;
 use Monolog\Logger;
 
 interface CrawlerWorker

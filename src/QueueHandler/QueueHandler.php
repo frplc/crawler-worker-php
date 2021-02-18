@@ -4,10 +4,11 @@ declare(strict_types=1);
  * Date: 13.02.21
  * Time: 1:11
  */
-namespace App\CrawlerWorker;
+namespace App\QueueHandler;
 
-use App\CrawlerWorker\Interfaces\TaskDto;
-use App\Inventory\CrawlerWorkerConsts;
+use App\Interfaces\TaskDto;
+use App\Inventory\CommonConsts;
+use App\ServiceDiscovery\ServiceDiscovery;
 
 class QueueHandler
 {
@@ -92,7 +93,7 @@ class QueueHandler
         ]);
 
         $taskDto->setResponseHandlerType("FILES_HANDLER");
-        $taskDto->setFileSavingPath(CrawlerWorkerConsts::STORAGE_DIR_PATH."files");
+        $taskDto->setFileSavingPath(CommonConsts::STORAGE_DIR_PATH."files");
 
         return $taskDto;
     }

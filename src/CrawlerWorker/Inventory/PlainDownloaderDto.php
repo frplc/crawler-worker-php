@@ -10,7 +10,6 @@ use App\CrawlerWorker\Abstracts\BaseCrawlerDto;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 
-
 class PlainDownloaderDto extends BaseCrawlerDto
 {
 

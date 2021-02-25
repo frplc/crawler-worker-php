@@ -10,10 +10,10 @@ use App\CrawlerWorker\Abstracts\BaseResponseHandler;
 use App\CrawlerWorker\Interfaces\CrawlerWorker;
 use App\CrawlerWorker\Interfaces\ResponseHandler;
 
-class LinksDigger extends BaseResponseHandler implements ResponseHandler
+class LinksHandler extends BaseResponseHandler implements ResponseHandler
 {
     /**
-     * LinksDigger constructor.
+     * LinksHandler constructor.
      * @param CrawlerWorker $crawler
      */
     public function __construct(CrawlerWorker $crawler)

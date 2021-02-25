@@ -19,7 +19,7 @@ class ResponseHandlerFactory
     {
         switch($currentCrawler->getTaskDto()->getResponseHandlerType()) {
             case "LINKS_DIGGER":
-                $handler = new LinksDigger($currentCrawler);
+                $handler = new LinksHandler($currentCrawler);
                 break;
             case "FILES_HANDLER":
                 $handler = new FilesHandler($currentCrawler);

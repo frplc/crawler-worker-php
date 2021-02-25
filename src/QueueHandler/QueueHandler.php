@@ -59,7 +59,7 @@ class QueueHandler
     protected function convertMessageToTaskDto(string $message): TaskDto
     {
         //Stub data
-        $taskDto = new \App\CrawlerWorker\Inventory\TaskDto();
+        $taskDto = new \App\Inventory\TaskDto();
 
         $taskDto->setCrawlerType("PLAIN_DOWNLOADER");
         $taskDto->setConcurrencyValue(10);

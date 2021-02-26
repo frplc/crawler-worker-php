@@ -22,6 +22,11 @@ abstract class BaseResponseHandler
     protected CrawlerDto $crawlerDto;
 
     /**
+     * {@var ElementsProcessor}
+     */
+    protected $elementsProcessor;
+
+    /**
      * BaseResponseHandler constructor.
      * @param CrawlerWorker $crawler
      */

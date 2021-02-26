@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Adjutants\LogAdjutant;
-use App\CrawlerWorker\CrawlerFactory;
+use App\CrawlerWorker\CrawlerWorkerFactory;
 use App\Interfaces\TaskDto;
 use App\Inventory\CommonConsts;
 use App\QueueHandler\QueueHandler;
@@ -46,7 +46,7 @@ class CrawlerWorkerCommand
 
     protected function crawl(TaskDto $taskDto): void
     {
-        $crawler = CrawlerFactory::makeCrawler($taskDto->getCrawlerType());
+        $crawler = CrawlerWorkerFactory::makeCrawler($taskDto->getCrawlerType());
 
         $crawler->setLogger($this->logger);
         $crawler->setTaskDto($taskDto);

@@ -33,6 +33,11 @@ abstract class BaseCrawlerWorker implements CrawlerWorker
     protected Logger $logger;
 
     /**
+     *{@var ClientAdapter}
+     */
+    protected $client;
+
+    /**
      * Initialize common crawler params and settings based on TaskDto data
      */
     public function configure(): void

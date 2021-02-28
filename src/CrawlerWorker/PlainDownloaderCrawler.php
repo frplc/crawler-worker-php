@@ -23,6 +23,12 @@ use GuzzleHttp\Psr7\Response;
  */
 class PlainDownloaderCrawler extends BaseCrawlerWorker
 {
+
+    /**
+     * {@var ClientAdapter}
+     */
+    protected $client;
+
     /**
      * Initialize specific crawler params and settings based on TaskDto data
      */
@@ -30,7 +36,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     {
         parent::configure();
 
-        // configure
+        $this->client = $this->prepareClient();
     }
 
     /**
@@ -38,9 +44,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
      */
     public function crawl(): void
     {
-        $client = $this->prepareClient();
-        $requests = $this->prepareRequests();
-        $pool = $this->makeRequestsPool($client, $requests);
+        $pool = $this->makeRequestsPool($this->client, $this->prepareRequests());
         $promise = $pool->promise();
         $promise->wait();
     }

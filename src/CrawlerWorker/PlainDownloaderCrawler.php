@@ -25,11 +25,6 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
 {
 
     /**
-     * {@var ClientAdapter}
-     */
-    protected $client;
-
-    /**
      * Initialize specific crawler params and settings based on TaskDto data
      */
     public function configure(): void

@@ -37,6 +37,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
         parent::configure();
 
         $this->client = $this->prepareClient();
+        $this->requestsOptions = $this->prepareRequestsOptions();
     }
 
     /**
@@ -49,6 +50,25 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
         return new Client([
             'timeout' => 10
         ]);
+    }
+
+    /**
+     * Set any needed options for requests in the request's pool
+     *
+     * @return array
+     */
+    protected function prepareRequestsOptions(): array
+    {
+        return [
+            'debug' => $this->taskDto->getOptions()->debug,
+            'headers' => [
+                'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+                "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                "Accept-encoding" => "gzip, deflate, br",
+                "Accept-language" => "en,ru;q=0.9,it;q=0.8,en-US;q=0.7",
+                "Cache-control" => "no-cache",
+            ]
+        ];
     }
 
     /**
@@ -83,7 +103,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     {
         return new Pool($client, $requests(), [
             'concurrency' => $this->taskDto->getConcurrencyValue(),
-            'options' => $this->prepareRequestsOptions(),
+            'options' => $this->requestsOptions,
             'fulfilled' => function (Response $response, $index) {
                 $this->successfulRequestsQuantity++;
                 $this->crawlSuccessfully($response, $index);
@@ -93,25 +113,6 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
                 $this->crawlRejected($reason, $index);
             },
         ]);
-    }
-
-    /**
-     * Set any needed options for requests in the request's pool
-     *
-     * @return array
-     */
-    protected function prepareRequestsOptions(): array
-    {
-        return [
-            'debug' => $this->taskDto->getOptions()->debug,
-            'headers' => [
-                'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
-                "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-                "Accept-encoding" => "gzip, deflate, br",
-                "Accept-language" => "en,ru;q=0.9,it;q=0.8,en-US;q=0.7",
-                "Cache-control" => "no-cache",
-            ]
-        ];
     }
 
     /**

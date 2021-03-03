@@ -7,8 +7,8 @@ declare(strict_types=1);
 namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Abstracts\BaseCrawlerWorker;
-
 use App\CrawlerWorker\Inventory\PlainDownloaderDto;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Pool;

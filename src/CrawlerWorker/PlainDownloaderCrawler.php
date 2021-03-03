@@ -40,16 +40,8 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     }
 
     /**
-     * @inheritdoc
-     */
-    public function crawl(): void
-    {
-        $pool = $this->makeRequestsPool($this->client, $this->prepareRequests());
-        $promise = $pool->promise();
-        $promise->wait();
-    }
-
-    /**
+     * Set any needed Client's options
+     *
      * @return Client
      */
     protected function prepareClient(): Client
@@ -57,6 +49,16 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
         return new Client([
             'timeout' => 10
         ]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function crawl(): void
+    {
+        $pool = $this->makeRequestsPool($this->client, $this->prepareRequests());
+        $promise = $pool->promise();
+        $promise->wait();
     }
 
     /**

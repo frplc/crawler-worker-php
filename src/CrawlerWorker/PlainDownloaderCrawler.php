@@ -43,7 +43,7 @@ class PlainDownloaderCrawler extends BaseCrawlerWorker
     protected function prepareClient(): Client
     {
         return new Client([
-            'timeout' => 10
+            'timeout' => $this->taskDto->getOptions()->timeout
         ]);
     }
 

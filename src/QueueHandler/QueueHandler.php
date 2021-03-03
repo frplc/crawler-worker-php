@@ -74,6 +74,7 @@ class QueueHandler
             "Cache-control" => "no-cache",
         ];
         $options->headers = $headers;
+        $options->timeout = 10.0;
         $taskDto->setOptions($options);
 
         $taskDto->setUrls([

@@ -1,6 +1,6 @@
-# Crawler worker on PHP
+# Crawler worker in PHP
  
-Crawler worker on PHP as part of distributed crawling system
+Crawler worker in PHP as part of distributed crawling system
 
 ### Launch 
 

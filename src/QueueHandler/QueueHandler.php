@@ -53,7 +53,7 @@ class QueueHandler
     {
         $msg = "";
 
-        // Get message from queue
+        // get message from queue
 
         return $msg;
     }

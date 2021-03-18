@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace App\QueueHandler;
 
 use App\Interfaces\TaskDto;
-use App\Inventory\CommonConsts;
 use App\ServiceDiscovery\ServiceDiscovery;
 
 class QueueHandler
@@ -55,7 +54,7 @@ class QueueHandler
         $msg = "";
 
         // Get message from queue
-     
+
         return $msg;
     }
 

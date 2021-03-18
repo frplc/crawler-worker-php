@@ -14,9 +14,9 @@ class FilesHandler extends BaseResponseHandler implements ResponseHandler
 {
     /**
      * LinksHandler constructor.
-     * @param CrawlerWorker $crawler
+     * @param Crawler $crawler
      */
-    public function __construct(CrawlerWorker $crawler)
+    public function __construct(Crawler $crawler)
     {
         parent::__construct($crawler);
         $this->prepareSaving();

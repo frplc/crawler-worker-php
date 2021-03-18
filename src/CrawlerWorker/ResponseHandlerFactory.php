@@ -12,10 +12,10 @@ use App\CrawlerWorker\Interfaces\ResponseHandler;
 class ResponseHandlerFactory
 {
     /**
-     * @param CrawlerWorker $currentCrawler
+     * @param Crawler $currentCrawler
      * @return ResponseHandler
      */
-    public static function makeResponseHandler(CrawlerWorker $currentCrawler): ResponseHandler
+    public static function makeResponseHandler(Crawler $currentCrawler): ResponseHandler
     {
         switch($currentCrawler->getTaskDto()->getResponseHandlerType()) {
             case "LINKS_DIGGER":

@@ -67,22 +67,6 @@ abstract class BaseCrawler implements Crawler
     }
 
     /**
-     * @param int $successfulRequestsQuantity
-     */
-    public function setSuccessfulRequestsQuantity(int $successfulRequestsQuantity): void
-    {
-        $this->successfulRequestsQuantity = $successfulRequestsQuantity;
-    }
-
-    /**
-     * @param int $rejectedRequestsQuantity
-     */
-    public function setRejectedRequestsQuantity(int $rejectedRequestsQuantity): void
-    {
-        $this->rejectedRequestsQuantity = $rejectedRequestsQuantity;
-    }
-
-    /**
      * @param Logger $logger
      */
     public function setLogger(Logger $logger): void

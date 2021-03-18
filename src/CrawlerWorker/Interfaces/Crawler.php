@@ -45,4 +45,14 @@ interface Crawler
      */
     public function getLogger(): Logger;
 
+    /**
+     * @return int
+     */
+    public function getSuccessfulRequestsQuantity(): int;
+
+    /**
+     * @return int
+     */
+    public function getRejectedRequestsQuantity(): int;
+
 }

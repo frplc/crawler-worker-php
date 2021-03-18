@@ -8,6 +8,7 @@ namespace App\Commands;
 
 use App\Adjutants\LogAdjutant;
 use App\CrawlerWorker\CrawlerFactory;
+use App\CrawlerWorker\Interfaces\Crawler;
 use App\Interfaces\TaskDto;
 use App\Inventory\CommonConsts;
 use App\QueueHandler\QueueHandler;
@@ -19,6 +20,8 @@ class CrawlerWorkerCommand
 {
 
     protected Logger $logger;
+
+    protected Crawler $crawler;
 
     public function __construct()
     {
@@ -58,6 +61,8 @@ class CrawlerWorkerCommand
         $crawler->crawl();
 
         $crawler->performActionsAfterCrawl();
+
+        $this->crawler = $crawler;
     }
 
     protected function configureLogger(): void
@@ -117,5 +122,10 @@ class CrawlerWorkerCommand
         $taskDto->setFileSavingPath(CommonConsts::STORAGE_DIR_PATH."files");
 
         return $taskDto;
+    }
+
+    public function getCrawler(): Crawler
+    {
+        return $this->crawler;
     }
 }

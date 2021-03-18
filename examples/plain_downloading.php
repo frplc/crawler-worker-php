@@ -6,33 +6,3 @@ use \App\Commands\CrawlerWorkerCommand;
 
 $command = new CrawlerWorkerCommand();
 $command->handle();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

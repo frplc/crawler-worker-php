@@ -52,57 +52,18 @@ class QueueHandler
 
     protected function getMessage(): string
     {
-        // Stub data
-        return "";
+        $msg = "";
+
+        // Get message from queue
+     
+        return $msg;
     }
 
     protected function convertMessageToTaskDto(string $message): TaskDto
     {
-        //Stub data
         $taskDto = new \App\Inventory\TaskDto();
 
-        $taskDto->setCrawlerType("PLAIN_DOWNLOADER");
-        $taskDto->setConcurrencyValue(10);
-
-        $options = new \StdClass();
-        $options->debug = true;
-        $headers = [
-            'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
-            "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-            "Accept-encoding" => "gzip, deflate, br",
-            "Accept-language" => "en,ru;q=0.9,it;q=0.8,en-US;q=0.7",
-            "Cache-control" => "no-cache",
-        ];
-        $options->headers = $headers;
-        $options->timeout = 10.0;
-        $taskDto->setOptions($options);
-
-        $taskDto->setUrls([
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://wikipedia.org',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-            'https://testimgs.s3.eu-west-3.amazonaws.com/white_10_10.jpg',
-        ]);
-
-        $taskDto->setResponseHandlerType("FILES_HANDLER");
-        $taskDto->setFileSavingPath(CommonConsts::STORAGE_DIR_PATH."files");
+        // convert msg to TaskDto
 
         return $taskDto;
     }

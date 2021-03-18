@@ -6,15 +6,15 @@ declare(strict_types=1);
  */
 namespace App\CrawlerWorker;
 
-use App\CrawlerWorker\Abstracts\BaseCrawlerWorker;
+use App\CrawlerWorker\Abstracts\BaseCrawler;
 
 /**
  * Crawler based on browser driver, aimed to perform complex emulation activity
  *
- * Class BrowserDriverPerformerCrawler
+ * Class BrowserDriverPerformer
  * @package App\CrawlerWorker
  */
-class BrowserDriverPerformerCrawler extends BaseCrawlerWorker
+class BrowserDriverPerformer extends BaseCrawler
 {
 
     /**

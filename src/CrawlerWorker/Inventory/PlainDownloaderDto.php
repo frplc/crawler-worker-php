@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace App\CrawlerWorker\Inventory;
 
 use App\CrawlerWorker\Abstracts\BaseCrawlerDto;
+
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 

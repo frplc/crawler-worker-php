@@ -6,22 +6,22 @@ declare(strict_types=1);
  */
 namespace App\CrawlerWorker;
 
-use App\CrawlerWorker\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\Crawler;
 
-class CrawlerWorkerFactory
+class CrawlerFactory
 {
     /**
      * @param string $crawlerType
-     * @return CrawlerWorker
+     * @return Crawler
      */
-    public static function makeCrawler(string $crawlerType): CrawlerWorker
+    public static function makeCrawler(string $crawlerType): Crawler
     {
         switch ($crawlerType) {
             case "PLAIN_DOWNLOADER":
-                $crawler = new PlainDownloaderCrawler();
+                $crawler = new PlainDownloader();
                 break;
             case "BROWSER_DRIVER_PERFORMER":
-                $crawler = new BrowserDriverPerformerCrawler();
+                $crawler = new BrowserDriverPerformer();
                 break;
             default:
                 throw new \InvalidArgumentException("Unknown crawler type");

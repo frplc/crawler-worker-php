@@ -7,14 +7,14 @@ declare(strict_types=1);
 namespace App\CrawlerWorker\Abstracts;
 
 use App\CrawlerWorker\Interfaces\CrawlerDto;
-use App\CrawlerWorker\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\Crawler;
 
 abstract class BaseResponseHandler
 {
     /**
-     * @var CrawlerWorker
+     * @var Crawler
      */
-    protected CrawlerWorker $crawler;
+    protected crawler $crawler;
 
     /**
      * @var CrawlerDto
@@ -28,9 +28,9 @@ abstract class BaseResponseHandler
 
     /**
      * BaseResponseHandler constructor.
-     * @param CrawlerWorker $crawler
+     * @param Crawler $crawler
      */
-    public function __construct(CrawlerWorker $crawler)
+    public function __construct(Crawler $crawler)
     {
         $this->crawler = $crawler;
     }

@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Abstracts\BaseResponseHandler;
-use App\CrawlerWorker\Interfaces\CrawlerWorker;
+use App\CrawlerWorker\Interfaces\Crawler;
 use App\CrawlerWorker\Interfaces\ResponseHandler;
 
 class FilesHandler extends BaseResponseHandler implements ResponseHandler

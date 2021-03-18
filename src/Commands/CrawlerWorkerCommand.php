@@ -52,8 +52,7 @@ class CrawlerWorkerCommand
 
     protected function crawl(TaskDto $taskDto): void
     {
-        $crawler = CrawlerFactory::makeCrawler($taskDto->getCrawlerType());
-
+        $crawler = $this->crawler = CrawlerFactory::makeCrawler($taskDto->getCrawlerType());
         $crawler->setLogger($this->logger);
         $crawler->setTaskDto($taskDto);
         $crawler->configure();
@@ -61,8 +60,6 @@ class CrawlerWorkerCommand
         $crawler->crawl();
 
         $crawler->performActionsAfterCrawl();
-
-        $this->crawler = $crawler;
     }
 
     protected function configureLogger(): void

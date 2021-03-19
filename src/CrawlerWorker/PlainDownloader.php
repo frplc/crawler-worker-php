@@ -75,12 +75,11 @@ class PlainDownloader extends BaseCrawler
      */
     protected function prepareRequests(): callable
     {
-        $requests = function () {
+        return function () {
             foreach ($this->taskDto->getUrls() as $url) {
                 yield new Request('GET', $url);
             }
         };
-        return $requests;
     }
 
     /**

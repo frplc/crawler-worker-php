@@ -14,7 +14,7 @@ abstract class BaseResponseHandler
     /**
      * @var Crawler
      */
-    protected crawler $crawler;
+    protected Crawler $crawler;
 
     /**
      * @var CrawlerDto

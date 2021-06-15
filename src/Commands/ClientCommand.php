@@ -130,6 +130,7 @@ class ClientCommand
         $taskDto->setFileSavingPath(CommonConsts::STORAGE_DIR_PATH."files");
 
         $taskDto->setTaskUUID(Uuid::uuid4()->toString());
+        $taskDto->setStorageDisk(ClientConsts::S3);
 
         return $taskDto;
     }

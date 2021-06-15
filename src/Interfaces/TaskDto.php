@@ -18,6 +18,8 @@ interface TaskDto
 
     public function setResponseHandlerType(string $handlerType): void;
 
+    public function setStorageDisk(string $type): void;
+
     public function setFileSavingPath(string $path): void;
 
     public function setTaskUUID(string $uuid): void;
@@ -37,4 +39,7 @@ interface TaskDto
     public function getFileSavingPath(): string;
 
     public function getTaskUUID(): string;
+
+    public function getStorageDisk(): string;
+
 }

@@ -47,6 +47,11 @@ class TaskDto implements ITaskDto
     protected string $taskUuid;
 
     /**
+     * @var string
+     */
+    protected string $storageDisk;
+
+    /**
      * @param string $responseHandlerType
      */
     public function setResponseHandlerType(string $responseHandlerType): void
@@ -155,6 +160,22 @@ class TaskDto implements ITaskDto
     public function setTaskUuid(string $taskUuid): void
     {
         $this->taskUuid = $taskUuid;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStorageDisk(): string
+    {
+        return $this->storageDisk;
+    }
+
+    /**
+     * @param string $storageDisk
+     */
+    public function setStorageDisk(string $storageDisk): void
+    {
+        $this->storageDisk = $storageDisk;
     }
 
 }

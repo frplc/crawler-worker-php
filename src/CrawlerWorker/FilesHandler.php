@@ -26,6 +26,8 @@ class FilesHandler extends BaseResponseHandler
      */
     protected function prepareSaving(): void
     {
+        //TODO: resolve preparing based on storage disk
+
         $saveDirectory = $this->crawler->getTaskDto()->getFileSavingPath();
         if (!is_dir($saveDirectory)) {
             mkdir($saveDirectory);
@@ -51,7 +53,7 @@ class FilesHandler extends BaseResponseHandler
 
         $logger->info($this->getRequestInfoAndTaskUUID());
 
-        //TODO: Resolve storage adapter
+        //TODO: Resolve storage adapter based on storage disk 
 
         $fileName = pathinfo($dto->getRequestedUrl(), PATHINFO_BASENAME);
         $filePath = $crawler->getTaskDto()->getFileSavingPath()."/".$fileName;

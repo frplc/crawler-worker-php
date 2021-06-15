@@ -8,8 +8,9 @@ namespace App\CrawlerWorker\Abstracts;
 
 use App\CrawlerWorker\Interfaces\CrawlerDto;
 use App\CrawlerWorker\Interfaces\Crawler;
+use App\CrawlerWorker\Interfaces\ResponseHandler;
 
-abstract class BaseResponseHandler
+abstract class BaseResponseHandler implements ResponseHandler
 {
     /**
      * @var Crawler
@@ -41,6 +42,8 @@ abstract class BaseResponseHandler
     public function handleRejectedResponse(): void
     {
         // handle
+
+        $this->crawler->getLogger()->warning("Rejected: ".$this->getRequestInfoAndTaskUUID());
     }
 
     /**
@@ -59,9 +62,29 @@ abstract class BaseResponseHandler
         return $this->crawlerDto;
     }
 
+    protected function getRequestIndex(): int
+    {
+        return $this->getCrawlerDto()->getRequestIndex();
+    }
+
+    protected function getRequestedUrl()
+    {
+        return $this->getCrawlerDto()->getRequestedUrl();
+    }
+
+    protected function getRequestIndexAndRequestedUrl()
+    {
+        return "Index: ".$this->getRequestIndex()."| URL: ".$this->getRequestedUrl();
+    }
+
     protected function getTaskUUIDMsg()
     {
         return " | Task uuid ".$this->crawler->getTaskDto()->getTaskUUID();
+    }
+
+    protected function getRequestInfoAndTaskUUID()
+    {
+        return $this->getRequestIndexAndRequestedUrl().$this->getTaskUUIDMsg();
     }
 
 }

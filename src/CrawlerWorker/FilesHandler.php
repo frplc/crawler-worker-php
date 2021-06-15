@@ -8,9 +8,8 @@ namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Abstracts\BaseResponseHandler;
 use App\CrawlerWorker\Interfaces\Crawler;
-use App\CrawlerWorker\Interfaces\ResponseHandler;
 
-class FilesHandler extends BaseResponseHandler implements ResponseHandler
+class FilesHandler extends BaseResponseHandler
 {
     /**
      * LinksHandler constructor.
@@ -50,8 +49,9 @@ class FilesHandler extends BaseResponseHandler implements ResponseHandler
         $dto = $this->getCrawlerDto();
         $logger = $crawler->getLogger();
 
-        $logger->info("Request index: ".$dto->getRequestIndex().$this->getTaskUUIDMsg());
-        $logger->info("Request url: " .$dto->getRequestedUrl().$this->getTaskUUIDMsg());
+        $logger->info($this->getRequestInfoAndTaskUUID());
+
+        //TODO: Resolve storage adapter
 
         $fileName = pathinfo($dto->getRequestedUrl(), PATHINFO_BASENAME);
         $filePath = $crawler->getTaskDto()->getFileSavingPath()."/".$fileName;

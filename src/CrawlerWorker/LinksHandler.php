@@ -8,9 +8,8 @@ namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Abstracts\BaseResponseHandler;
 use App\CrawlerWorker\Interfaces\Crawler;
-use App\CrawlerWorker\Interfaces\ResponseHandler;
 
-class LinksHandler extends BaseResponseHandler implements ResponseHandler
+class LinksHandler extends BaseResponseHandler
 {
     /**
      * LinksHandler constructor.

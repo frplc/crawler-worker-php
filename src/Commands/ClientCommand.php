@@ -11,7 +11,6 @@ use App\CrawlerWorker\CrawlerFactory;
 use App\CrawlerWorker\Interfaces\Crawler;
 use App\Interfaces\TaskDto;
 use App\Inventory\CommonConsts;
-use App\Inventory\TaskConsts;
 use App\QueueHandler\QueueHandler;
 
 use Monolog\Handler\StreamHandler;

@@ -12,26 +12,30 @@ use PHPUnit\Framework\TestCase;
 
 final class CrawlerTest extends TestCase
 {
+    protected Crawler $crawler;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->command = new ClientCommand();
+        $this->command->handle();
+        $this->crawler = $this->command->getCrawler();
     }
 
     public function testExecuteCrawlingCorrectly()
     {
-        $this->command->handle();
-
-        /**
-         * @var Crawler $crawler
-         */
-        $crawler = $this->command->getCrawler();
-
-        $plannedRequestsQuantity = count($crawler->getTaskDto()->getUrls());
-        $madeRequestsQuantity = $crawler->getSuccessfulRequestsQuantity()
-            + $crawler->getRejectedRequestsQuantity();
-        $this->assertEquals($plannedRequestsQuantity, $madeRequestsQuantity);
+        $madeRequestsQuantity = $this->crawler->getSuccessfulRequestsQuantity()
+            + $this->crawler->getRejectedRequestsQuantity();
+        $this->assertEquals($this->getPlannedRequestsQuantity(), $madeRequestsQuantity);
     }
 
+    public function testExecuteCrawlingSuccessfully()
+    {
+        $this->assertEquals($this->getPlannedRequestsQuantity(), $this->crawler->getSuccessfulRequestsQuantity());
+    }
+
+    protected function getPlannedRequestsQuantity(): int
+    {
+        return $plannedRequestsQuantity = count($this->crawler->getTaskDto()->getUrls());
+    }
 }

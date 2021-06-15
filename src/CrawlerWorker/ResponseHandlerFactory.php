@@ -8,6 +8,7 @@ namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Interfaces\Crawler;
 use App\CrawlerWorker\Interfaces\ResponseHandler;
+use App\CrawlerWorker\Inventory\CrawlerConsts;
 
 class ResponseHandlerFactory
 {
@@ -18,10 +19,10 @@ class ResponseHandlerFactory
     public static function makeResponseHandler(Crawler $currentCrawler): ResponseHandler
     {
         switch($currentCrawler->getTaskDto()->getResponseHandlerType()) {
-            case "LINKS_DIGGER":
+            case CrawlerConsts::LINKS_HANDLER:
                 $handler = new LinksHandler($currentCrawler);
                 break;
-            case "FILES_HANDLER":
+            case CrawlerConsts::FILES_HANDLER:
                 $handler = new FilesHandler($currentCrawler);
                 break;
             default:

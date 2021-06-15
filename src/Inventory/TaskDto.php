@@ -24,7 +24,7 @@ class TaskDto implements ITaskDto
     /**
      * @var int
      */
-    protected int $concurrencyValue;
+    protected int $requestsConcurrencyValue;
 
     /**
      * @var \StdClass
@@ -40,6 +40,11 @@ class TaskDto implements ITaskDto
      * @var string
      */
     protected string $fileSavingPath;
+
+    /**
+     * @var string
+     */
+    protected string $taskUuid;
 
     /**
      * @param string $responseHandlerType
@@ -74,11 +79,11 @@ class TaskDto implements ITaskDto
     }
 
     /**
-     * @param int $concurrencyValue
+     * @param int $requestsConcurrencyValue
      */
-    public function setConcurrencyValue(int $concurrencyValue): void
+    public function setRequestsConcurrencyValue(int $requestsConcurrencyValue): void
     {
-        $this->concurrencyValue = $concurrencyValue;
+        $this->requestsConcurrencyValue = $requestsConcurrencyValue;
     }
 
     public function getCrawlerType(): string
@@ -99,9 +104,9 @@ class TaskDto implements ITaskDto
     /**
      * @return int
      */
-    public function getConcurrencyValue(): int
+    public function getRequestsConcurrencyValue(): int
     {
-        return $this->concurrencyValue;
+        return $this->requestsConcurrencyValue;
     }
 
     /**
@@ -134,6 +139,22 @@ class TaskDto implements ITaskDto
     public function setFileSavingPath(string $fileSavingPath): void
     {
         $this->fileSavingPath = $fileSavingPath;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTaskUuid(): string
+    {
+        return $this->taskUuid;
+    }
+
+    /**
+     * @param string $taskUuid
+     */
+    public function setTaskUuid(string $taskUuid): void
+    {
+        $this->taskUuid = $taskUuid;
     }
 
 }

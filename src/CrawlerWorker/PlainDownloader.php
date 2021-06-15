@@ -90,7 +90,7 @@ class PlainDownloader extends BaseCrawler
     protected function makeRequestsPool($client, callable $requests): Pool
     {
         return new Pool($client, $requests(), [
-            'concurrency' => $this->taskDto->getConcurrencyValue(),
+            'concurrency' => $this->taskDto->getRequestsConcurrencyValue(),
             'options' => $this->requestsOptions,
             'fulfilled' => function (Response $response, $index) {
                 $this->successfulRequestsQuantity++;

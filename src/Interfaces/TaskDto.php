@@ -12,7 +12,7 @@ interface TaskDto
 
     public function setUrls(array $urls): void;
 
-    public function setConcurrencyValue(int $value): void;
+    public function setRequestsConcurrencyValue(int $value): void;
 
     public function setOptions(\StdClass $options): void;
 
@@ -20,17 +20,21 @@ interface TaskDto
 
     public function setFileSavingPath(string $path): void;
 
+    public function setTaskUUID(string $uuid): void;
+
     public function getCrawlerType(): string;
 
     public function getUrls(): array;
 
     public function getUrlsQuantity(): int;
 
-    public function getConcurrencyValue(): int;
+    public function getRequestsConcurrencyValue(): int;
 
     public function getOptions(): \StdClass;
 
     public function getResponseHandlerType(): string;
 
     public function getFileSavingPath(): string;
+
+    public function getTaskUUID(): string;
 }

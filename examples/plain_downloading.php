@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require __DIR__.'/../vendor/autoload.php';
 
-use \App\Commands\CrawlerWorkerCommand;
+use \App\Commands\ClientCommand;
 
-$command = new CrawlerWorkerCommand();
+$command = new ClientCommand();
 $command->handle();

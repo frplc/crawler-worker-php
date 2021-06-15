@@ -59,4 +59,9 @@ abstract class BaseResponseHandler
         return $this->crawlerDto;
     }
 
+    protected function getTaskUUIDMsg()
+    {
+        return " | Task uuid ".$this->crawler->getTaskDto()->getTaskUUID();
+    }
+
 }

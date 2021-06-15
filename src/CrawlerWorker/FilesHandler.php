@@ -50,12 +50,12 @@ class FilesHandler extends BaseResponseHandler implements ResponseHandler
         $dto = $this->getCrawlerDto();
         $logger = $crawler->getLogger();
 
-        $logger->info("Request index: ".$dto->getRequestIndex());
-        $logger->info("Request url: " .$dto->getRequestedUrl());
+        $logger->info("Request index: ".$dto->getRequestIndex().$this->getTaskUUIDMsg());
+        $logger->info("Request url: " .$dto->getRequestedUrl().$this->getTaskUUIDMsg());
 
         $fileName = pathinfo($dto->getRequestedUrl(), PATHINFO_BASENAME);
         $filePath = $crawler->getTaskDto()->getFileSavingPath()."/".$fileName;
         file_put_contents($filePath, $dto->getResponse()->getBody());
-        $logger->info("File ".$filePath." saved");
+        $logger->info("File ".$filePath." saved".$this->getTaskUUIDMsg());
     }
 }

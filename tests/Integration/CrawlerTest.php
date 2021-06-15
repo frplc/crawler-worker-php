@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 namespace Tests\Integration;
 
-use App\Commands\CrawlerWorkerCommand;
+use App\Commands\ClientCommand;
 use App\CrawlerWorker\Interfaces\Crawler;
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +16,7 @@ final class CrawlerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->command = new CrawlerWorkerCommand();
+        $this->command = new ClientCommand();
     }
 
     public function testExecuteCrawlingCorrectly()

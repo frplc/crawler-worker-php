@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace App\CrawlerWorker;
 
 use App\CrawlerWorker\Interfaces\Crawler;
+use App\CrawlerWorker\Inventory\CrawlerConsts;
 
 class CrawlerFactory
 {
@@ -17,10 +18,10 @@ class CrawlerFactory
     public static function makeCrawler(string $crawlerType): Crawler
     {
         switch ($crawlerType) {
-            case "PLAIN_DOWNLOADER":
+            case CrawlerConsts::PLAIN_DOWNLOADER:
                 $crawler = new PlainDownloader();
                 break;
-            case "BROWSER_DRIVER_PERFORMER":
+            case CrawlerConsts::BROWSER_DRIVER_PERFORMER:
                 $crawler = new BrowserDriverPerformer();
                 break;
             default:

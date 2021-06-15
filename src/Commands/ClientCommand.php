@@ -27,15 +27,27 @@ use Ramsey\Uuid\Uuid;
 class ClientCommand
 {
 
+    /**
+     * @var Logger
+     */
     protected Logger $logger;
 
+    /**
+     * @var Crawler
+     */
     protected Crawler $crawler;
 
+    /**
+     * ClientCommand constructor.
+     */
     public function __construct()
     {
         $this->configureLogger();
     }
 
+    /**
+     * Handle crawling task
+     */
     public function handle(): void
     {
         try {
@@ -50,6 +62,9 @@ class ClientCommand
         }
     }
 
+    /**
+     * @return TaskDto
+     */
     protected function resolveTask(): TaskDto
     {
         //standard usage
@@ -60,6 +75,9 @@ class ClientCommand
           return $this->makeExampleTask();
     }
 
+    /**
+     * @param TaskDto $taskDto
+     */
     protected function crawl(TaskDto $taskDto): void
     {
         $crawler = $this->crawler = CrawlerFactory::makeCrawler($taskDto->getCrawlerType());
@@ -72,6 +90,9 @@ class ClientCommand
         $crawler->performActionsAfterCrawl();
     }
 
+    /**
+     * Configure logger
+     */
     protected function configureLogger(): void
     {
         $date = (new \DateTime())->format("Y_m_d");
@@ -81,6 +102,9 @@ class ClientCommand
         $this->logger = $logger;
     }
 
+    /**
+     * @return TaskDto
+     */
     protected function makeExampleTask(): TaskDto
     {
         $taskDto = new \App\Inventory\TaskDto();
@@ -124,6 +148,9 @@ class ClientCommand
         return $urls;
     }
 
+    /**
+     * @return Crawler
+     */
     public function getCrawler(): Crawler
     {
         return $this->crawler;
